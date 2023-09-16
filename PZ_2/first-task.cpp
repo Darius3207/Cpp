@@ -21,14 +21,14 @@ int main()
   
   if (a == c) {
       w = x * pow((a-c), 3);
-      b = x + (a, 3);
+      b = x + pow(a, 3);
       
       cout << "The result is: " << w << endl;
       cout << "The result is: " << b;
       }
       
   else {
-      w = (x, 3) - a;
+      w = pow(x, 3) - a;
       cout << "The result is: " << w;
       }
  
