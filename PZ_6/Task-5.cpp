@@ -9,17 +9,17 @@ int main() {
     std::cout << "Введіть натуральне число N: ";
     std::cin >> N;
 
-    int product = 1;
+    int result = 1;
 
     while (N > 0) {
         int digit = N % 10; 
         if (digit == 9) {
-            product *= digit; 
+            result *= digit; 
         }
         N /= 10; 
     }
 
-    std::cout << "Добуток цифр, які дорівнюють 9: " << product << std::endl;
+    std::cout << "Добуток цифр, які дорівнюють 9: " << result << std::endl;
 
     return 0;
 }
