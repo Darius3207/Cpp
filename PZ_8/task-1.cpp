@@ -1,64 +1,58 @@
 #include <iostream>
-#include <cstdlib> // Для функції rand
-#include <ctime>   // Для функції time
+#include <cstdlib>
+#include <ctime>
 
-void bubbleSortAscending(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                // Обмін елементів, якщо потрібно
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
-
-void bubbleSortDescending(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] < arr[j + 1]) {
-                // Обмін елементів, якщо потрібно
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
+using namespace std;
 
 int main() {
-    const int n = 12;
-    int arr[n];
+    const int m = 12;
 
-    // Ініціалізація генератора випадкових чисел
-    std::srand(static_cast<unsigned>(std::time(nullptr)));
+    int array[m];
+    srand(time(0)); // Ініціалізуємо генератор випадкових чисел залежно від часу
 
-    // Заповнення масиву випадковими числами в діапазоні від 1 до 100
-    for (int i = 0; i < n; i++) {
-        arr[i] = std::rand() % 100 + 1;
+    for (int i = 0; i < m; ++i) {
+        array[i] = rand() % 100 + 1; // Генеруємо випадкове число від 1 до 100
     }
 
-    std::cout << "Вихідний масив: ";
-    for (int i = 0; i < n; i++) {
-        std::cout << arr[i] << " ";
+    // Виводимо початковий масив
+    cout << "Початковий масив: ";
+    for (int i = 0; i < m; ++i) {
+        cout << array[i] << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
-    bubbleSortAscending(arr, n);
-    std::cout << "Відсортований за зростанням: ";
-    for (int i = 0; i < n; i++) {
-        std::cout << arr[i] << " ";
+    // Сортування бульбашкою у зростанні
+    for (int i = 0; i < m - 1; ++i) {
+        for (int j = 0; j < m - i - 1; ++j) {
+            if (array[j] > array[j + 1]) {
+                swap(array[j], array[j + 1]);
+            }
+        }
     }
-    std::cout << std::endl;
 
-    bubbleSortDescending(arr, n);
-    std::cout << "Відсортований за спаданням: ";
-    for (int i = 0; i < n; i++) {
-        std::cout << arr[i] << " ";
+    // Виводимо відсортований масив у зростанні
+    cout << "Відсортований у зростанні: ";
+    for (int i = 0; i < m; ++i) {
+        cout << array[i] << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
+
+    // Сортування бульбашкою у спаданні
+    for (int i = 0; i < m - 1; ++i) {
+        for (int j = 0; j < m - i - 1; ++j) {
+            if (array[j] < array[j + 1]) {
+                swap(array[j], array[j + 1]);
+            }
+        }
+    }
+
+    // Виводимо відсортований масив у спаданні
+    cout << "Відсортований у спаданні: ";
+    for (int i = 0; i < m; ++i) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
+
