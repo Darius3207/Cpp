@@ -2,48 +2,40 @@
 
 using namespace std;
 
-const int MAX_SIZE = 100;
-
-void replaceNegativeElements(int arr[], int size) {
-    // Знайти індекс першого максимального елемента
-    int maxIndex = 0;
-    for (int i = 1; i < size; ++i) {
-        if (arr[i] > arr[maxIndex]) {
-            maxIndex = i;
-        }
-    }
-
-    // Замінити від'ємні елементи перед максимальним нулями
-    for (int i = 0; i < maxIndex; ++i) {
-        if (arr[i] < 0) {
-            arr[i] = 0;
-        }
-    }
-}
-
 int main() {
-    int arr[MAX_SIZE];
-    int size;
-
-    // Ввід розміру масиву
+    setlocale(LC_ALL, "Ukrainian");
+    
+    int n;
     cout << "Введіть розмір масиву: ";
-    cin >> size;
+    cin >> n;
 
-    // Ввід елементів масиву
-    cout << "Введіть елементи масиву:\n";
-    for (int i = 0; i < size; ++i) {
+
+    int arr[n];
+
+    cout << "Введіть елементи масиву:" << endl;
+    for (int i = 0; i < n; i++) {
         cout << "arr[" << i << "]: ";
         cin >> arr[i];
     }
 
-    // Виклик функції для заміни від'ємних елементів
-    replaceNegativeElements(arr, size);
+    int maxIndex = -1;
+    for (int i = 0; i < n; i++) {
+        if (maxIndex == -1 || arr[i] > arr[maxIndex]) {
+            maxIndex = i;
+        }
+    }
 
-    // Виведення зміненого масиву
-    cout << "Змінений масив:\n";
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < maxIndex; i++) {
+        if (arr[i] < 0) {
+            arr[i] = 0;
+        }
+    }
+
+    cout << "Змінений масив:" << endl;
+    for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
+    
 
     return 0;
 }
