@@ -1,68 +1,44 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
 using namespace std;
 
-void swapMinMax(int arr[], int size) {
-    if (size <= 1) {
-        // Масив порожній або має лише один елемент, немає потреби в обміні
-        return;
-    }
-
-    // Знаходимо індекс найменшого елемента
-    int minIndex = 0;
-    for (int i = 1; i < size; ++i) {
-        if (arr[i] < arr[minIndex]) {
-            minIndex = i;
-        }
-    }
-
-    // Знаходимо індекс найбільшого елемента
-    int maxIndex = 0;
-    for (int i = 1; i < size; ++i) {
-        if (arr[i] > arr[maxIndex]) {
-            maxIndex = i;
-        }
-    }
-
-    // Обмін значень найбільшого і найменшого елементів
-    int temp = arr[minIndex];
-    arr[minIndex] = arr[maxIndex];
-    arr[maxIndex] = temp;
-}
-
 int main() {
-    // Встановлюємо seed для генерації випадкових чисел на основі часу
+    setlocale(LC_ALL, "Ukrainian");
+    
+    const int size = 5;
+    int arr[size];
     srand(time(0));
 
-    int size;
-
-    // Введення розміру масиву від користувача
-    cout << "Введіть розмір масиву: ";
-    cin >> size;
-
-    int myArray[size];
-
-    // Заповнюємо масив рандомними числами
-    for (int i = 0; i < size; ++i) {
-        myArray[i] = rand() % 100; // Генеруємо випадкове число в діапазоні від 0 до 99
+    for(int i = 0; i < size; i++) {
+         arr[i] = rand() % 100 + 1; 
     }
 
-    // Виводимо початковий масив
     cout << "Початковий масив: ";
-    for (int i = 0; i < size; ++i) {
-        cout << myArray[i] << " ";
+    for(int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
     }
     cout << endl;
 
-    // Змінюємо місцями найбільший і найменший елементи
-    swapMinMax(myArray, size);
+    int min_index = 0;
+    int max_index = 0;
 
-    // Виводимо змінений масив
-    cout << "Масив після зміни: ";
-    for (int i = 0; i < size; ++i) {
-        cout << myArray[i] << " ";
+    for(int i = 0; i < size; i++) {
+        if(arr[i] < arr[min_index]) {
+            min_index = i;
+        }
+        if(arr[i] > arr[max_index]) {
+            max_index = i;
+        }
+    }
+
+    int var = arr[min_index];
+    arr[min_index] = arr[max_index];
+    arr[max_index] = var;
+
+    cout << "Змінений масив: ";
+    for(int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
     }
     cout << endl;
 
