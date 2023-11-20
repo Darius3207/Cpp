@@ -5,6 +5,8 @@
 using namespace std;
 
 int main() {
+    setlocale(LC_ALL, "Ukrainian");
+    
     const int m = 12;
 
     int array[m];
