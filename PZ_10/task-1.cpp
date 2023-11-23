@@ -6,6 +6,8 @@ using namespace std;
 
 
 int main() {
+	setlocale(LC_ALL, "Ukrainian");
+	
 	const int m = 4;
 	const int n = 3;
 	int array[m][n];
