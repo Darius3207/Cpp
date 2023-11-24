@@ -24,23 +24,21 @@ int main() {
 	cout << "\n" << endl;
 	
 	int max = 0;
+	int row = 0;
+	int column = 0;
+	
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
 			if (array[i][j] > max) {
 				max = array[i][j];
-				
+				row = i + 1;
+				column = j + 1;
 			}
 		}
 	}
 	cout << "Максимальне значення у масиві: " << max << endl;
-	for (int i = 0; i < m; i++) {
-		for (int j = 0; j < n; j++) {
-			if (array[i][j] == max) {
-				cout << "Ряд: " << i + 1 << endl;
-				cout << "Стовпчик: " << j + 1 << endl;
-			}
-		}
-	}
+	cout << "Ряд: " << row << endl;
+	cout << "Стовпчик: " << column << endl;
 	
 	return 0;
 }
