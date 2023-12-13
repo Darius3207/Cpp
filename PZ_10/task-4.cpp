@@ -29,7 +29,7 @@ int main() {
 		for (int i = 0; i < m; i++) {
 			summ += array[i][j];
 		}
-		cout << "В стовпчику " << j + 1 << " кількість парних чисел = " << summ << endl;
+		cout << "В стовпчику " << j + 1 << " сума елементів = " << summ << endl;
 	}
 	return 0;
 
