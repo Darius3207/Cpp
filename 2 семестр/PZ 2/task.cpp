@@ -2,50 +2,48 @@
 #include <cstdlib>
 #include <ctime>
 
-const int SIZE = 5; // Розмірність масиву
+using namespace std;
+
+const int SIZE = 5; 
 
 int main() {
     int array[SIZE][SIZE];
     int* ptrArray[SIZE];
     int evenCount = 0, oddCount = 0;
 
-    srand(time(0)); // Ініціалізація генератора випадкових чисел
+    srand(time(0)); 
 
-    // Заповнення масиву випадковими значеннями та ініціалізація вказівників
-    for (int i = 0; i < SIZE; ++i) {
+    for (int i = 0; i < SIZE; i++) {
         ptrArray[i] = array[i];
-        for (int j = 0; j < SIZE; ++j) {
-            array[i][j] = rand() % 100; // Генеруємо випадкові числа від 0 до 99
+        for (int j = 0; j < SIZE; j++) {
+            array[i][j] = rand() % 100; 
         }
     }
 
-    std::cout << "Елементи масиву:" << std::endl;
-    // Виведення елементів масиву
-    for (int i = 0; i < SIZE; ++i) {
-        for (int j = 0; j < SIZE; ++j) {
-            std::cout << *(*(ptrArray + i) + j) << " ";
+    cout << "Елементи масиву:" << endl;
+    
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            cout << *(*(ptrArray + i) + j) << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
 
-    // Виведення головної діагоналі
-    std::cout << "Головна діагональ: ";
-    for (int i = 0; i < SIZE; ++i) {
+    cout << "Головна діагональ: ";
+    for (int i = 0; i < SIZE; i++) {
         std::cout << *(*(ptrArray + i) + i) << " ";
     }
-    std::cout << std::endl;
+   cout << endl;
 
-    // Виведення побічної діагоналі
-    std::cout << "Побічна діагональ: ";
-    for (int i = 0; i < SIZE; ++i) {
-        std::cout << *(*(ptrArray + i) + (SIZE - 1 - i)) << " ";
+    cout << "Побічна діагональ: ";
+    for (int i = 0; i < SIZE; i++) {
+        cout << *(*(ptrArray + i) + (SIZE - 1 - i)) << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
-    // Підрахунок парних та непарних елементів масиву
-    for (int i = 0; i < SIZE; ++i) {
-        for (int j = 0; j < SIZE; ++j) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
             if (*(*(ptrArray + i) + j) % 2 == 0)
                 evenCount++;
             else
@@ -53,8 +51,8 @@ int main() {
         }
     }
 
-    std::cout << "Кількість парних елементів: " << evenCount << std::endl;
-    std::cout << "Кількість непарних елементів: " << oddCount << std::endl;
+    cout << "Кількість парних елементів: " << evenCount << endl;
+    cout << "Кількість непарних елементів: " << oddCount << endl;
 
     return 0;
 }
