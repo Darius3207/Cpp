@@ -32,7 +32,7 @@ int main() {
 
     cout << "Головна діагональ: ";
     for (int i = 0; i < SIZE; i++) {
-        std::cout << *(*(ptrArray + i) + i) << " ";
+        cout << *(*(ptrArray + i) + i) << " ";
     }
    cout << endl;
 
